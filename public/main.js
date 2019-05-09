@@ -41,6 +41,8 @@ const ranks = [{
 }]
 
 const deck = []
+const playerHand = []
+const dealerHand = []
 
 const createDeck = () => {
   for (let j = 0; j < ranks.length; j++) {
@@ -70,16 +72,16 @@ const main = () => {
   createDeck()
   shuffle()
 }
-const cardDrawn = () => {
-  const firstCard = deck[0]
-  console.log(firstCard)
-  document.querySelector('.card-drawn').textContent =
-    firstCard.rank +
+const dealCard = () => {
+  const dealCard = deck.pop()
+  document.querySelector('.card-drawn1').textContent =
+    dealCard.rank +
     ' of ' +
-    firstCard.suit +
+    dealCard.suit +
     ' has a value of ' +
-    firstCard.value
+    dealCard.value
+  playerHand.push(dealCard)
 }
 
-document.querySelector('.draw-btn').addEventListener('click', cardDrawn)
+document.querySelector('.draw-btn').addEventListener('click', dealCard)
 document.addEventListener('DOMContentLoaded', main)

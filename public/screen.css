@@ -23,7 +23,14 @@ main {
   flex-direction: column;
 }
 
-.card-drawn {
+.card-drawn1 {
+  background-color: purple;
+  font-size: 3rem;
+  margin: 3rem;
+  padding: 1rem;
+}
+
+.card-drawn2 {
   background-color: purple;
   font-size: 3rem;
   margin: 3rem;
