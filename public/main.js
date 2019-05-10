@@ -49,8 +49,8 @@ const createDeck = () => {
     const rank = ranks[j]
     for (let i = 0; i < suits.length; i++) {
       const suit = suits[i]
-      console.log(rank)
-      console.log(suit)
+      // console.log(rank)
+      // console.log(suit)
       const card = {
         value: rank.value,
         rank: rank.rank,
@@ -73,7 +73,7 @@ const main = () => {
   shuffle()
 }
 const dealCard = () => {
-  const dealCard = deck.pop()
+  const dealCard = (deck.pop())
   document.querySelector('.card-drawn1').textContent =
     dealCard.rank +
     ' of ' +
