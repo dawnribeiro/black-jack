@@ -4,7 +4,7 @@
 <head lang="en">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Create A Deck</title>
+  <title>Black Jack</title>
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="stylesheet" href="/screen.css">
 </head>
@@ -14,21 +14,22 @@
     <h1>Deck of Cards</h1>
   </header>
   <main>
-    <section>
-      <button class="draw-btn">Deal a Card</button>
+    <section class="game">
+      <button class="draw-btn">Hit Me!</button>
+      <button class="stand-btn">Stand</button>
+      <button class="reset-btn">Shuffle</button>
+
       <section class="dealer-wins"></section>
       <section class="player-wins"></section>
       <section>
-        <ul class="players-cards">
-          <li>
-            <div class="card-drawn1">1st card</div>
-          </li>
-          <li>
-            <div class="card-drawn2">2nd card</div>
-          </li>
+        <ul class="dealers-cards">
+
         </ul>
-        <button class="reset">Shuffle</button>
+        <ul class="players-cards">
+
+        </ul>
       </section>
+
     </section>
   </main>
   <script src="/main.js" charset="utf-8"></script>

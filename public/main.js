@@ -49,8 +49,8 @@ const createDeck = () => {
     const rank = ranks[j]
     for (let i = 0; i < suits.length; i++) {
       const suit = suits[i]
-      // console.log(rank)
-      // console.log(suit)
+      console.log(rank)
+      console.log(suit)
       const card = {
         value: rank.value,
         rank: rank.rank,
@@ -68,41 +68,55 @@ const shuffle = () => {
     deck[randomPosition] = temp
   }
 }
-const main = () => {
-  createDeck()
-  shuffle()
-}
-const dealCard = () => {
+const dealCardToPlayer = () => {
   const dealCard = (deck.pop())
-  document.querySelector('.card-drawn1').textContent =
+
+  playerHand.push(dealCard)
+
+  const playerCard = document.createElement('li')
+  playerCard.textContent =
     dealCard.rank +
     ' of ' +
     dealCard.suit +
     ' has a value of ' +
     dealCard.value
-  playerHand.push(dealCard)
+  document.querySelector('.players-cards').appendChild(playerCard)
+}
+const dealCardToDealer = () => {
+  const dealCard = (deck.pop())
 
-  const playerCardContainer = document.createElement('card-drawn2')
-  playerCardContainer.textContent =
+  dealerHand.push(dealCard)
+
+  const dealerCard = document.createElement('li')
+  dealerCard.textContent =
     dealCard.rank +
     ' of ' +
     dealCard.suit +
     ' has a value of ' +
-    dealCard
-  document.querySelector('.players-cards').appendChild(playerCardContainer)
+    dealCard.value
+  document.querySelector('.dealers-cards').appendChild(dealerCard)
 }
-
 const reset = () => {
-  document.querySelector('.card-drawn1').textContent = '1st card'
-  document.querySelector('.card-drawn2').textContent = '2nd card'
-
-  // document.querySelector('.winner1').textContent = ''
+  document.querySelector('.players-cards').textContent = ' '
+  document.querySelector('.draw-btn').disabled = false
+}
+const stand = () => {
+  document.querySelector('.draw-btn').disabled = true
+}
+const main = () => {
+  createDeck()
+  shuffle()
+  dealCardToPlayer()
+  dealCardToPlayer()
+  dealCardToDealer()
+  dealCardToDealer()
 }
 //   console.log('resetting page')
 //   document.querySelector('.team-2-add-1-button').disabled = false
 //   document.querySelector('.team-2-subtract-1-button').disabled = false
 //   document.querySelector('.team-1-add-1-button').disabled = false
+document.querySelector('.stand-btn').addEventListener('click', stand)
 
-document.querySelector('.reset').addEventListener('click', reset)
-document.querySelector('.draw-btn').addEventListener('click', dealCard)
+document.querySelector('.reset-btn').addEventListener('click', reset)
+document.querySelector('.draw-btn').addEventListener('click', dealCardToPlayer)
 document.addEventListener('DOMContentLoaded', main)
