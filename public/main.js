@@ -83,9 +83,21 @@ const dealCard = () => {
   playerHand.push(dealCard)
 
   const playerCardContainer = document.createElement('card-drawn2')
-  playerCardContainer.textcontent = (dealCard)
+  playerCardContainer.textContent = (dealCard)
   document.querySelector('.players-cards').appendChild(playerCardContainer)
 }
 
+const reset = () => {
+  document.querySelector('.card-drawn1').textContent = '1st card'
+  document.querySelector('.card-drawn2').textContent = '2nd card'
+
+  // document.querySelector('.winner1').textContent = ''
+}
+//   console.log('resetting page')
+//   document.querySelector('.team-2-add-1-button').disabled = false
+//   document.querySelector('.team-2-subtract-1-button').disabled = false
+//   document.querySelector('.team-1-add-1-button').disabled = false
+
+document.querySelector('.reset').addEventListener('click', reset)
 document.querySelector('.draw-btn').addEventListener('click', dealCard)
 document.addEventListener('DOMContentLoaded', main)
