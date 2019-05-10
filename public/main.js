@@ -83,7 +83,12 @@ const dealCard = () => {
   playerHand.push(dealCard)
 
   const playerCardContainer = document.createElement('card-drawn2')
-  playerCardContainer.textContent = (dealCard)
+  playerCardContainer.textContent =
+    dealCard.rank +
+    ' of ' +
+    dealCard.suit +
+    ' has a value of ' +
+    dealCard
   document.querySelector('.players-cards').appendChild(playerCardContainer)
 }
 
