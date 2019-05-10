@@ -81,6 +81,10 @@ const dealCard = () => {
     ' has a value of ' +
     dealCard.value
   playerHand.push(dealCard)
+
+  const playerCardContainer = document.createElement('card-drawn2')
+  playerCardContainer.textcontent = (dealCard)
+  document.querySelector('.players-cards').appendChild(playerCardContainer)
 }
 
 document.querySelector('.draw-btn').addEventListener('click', dealCard)
