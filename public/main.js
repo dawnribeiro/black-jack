@@ -80,6 +80,7 @@ const dealCardToPlayer = () => {
     dealCard.suit +
     ' has a value of ' +
     dealCard.value
+
   document.querySelector('.players-cards').appendChild(playerCard)
 }
 const dealCardToDealer = () => {
@@ -96,13 +97,51 @@ const dealCardToDealer = () => {
     dealCard.value
   document.querySelector('.dealers-cards').appendChild(dealerCard)
 }
+
+
 const reset = () => {
   document.querySelector('.players-cards').textContent = ' '
   document.querySelector('.draw-btn').disabled = false
+  document.querySelector('.player-total').textContent = ' '
+  document.querySelector('.dealer-total').textContent = ' '
 }
 const stand = () => {
+  let deckTotalPlayer = 0
+  playerHand.forEach(card => {
+    console.log(card.value)
+    deckTotalPlayer += card.value
+    document.querySelector('.player-total').textContent = deckTotalPlayer
+  })
+  let deckTotalDealer = 0
+  dealerHand.forEach(card => {
+    console.log(card.value)
+    deckTotalDealer += card.value
+    document.querySelector('.dealer-total').textContent = deckTotalDealer
+  })
+  if (deckTotalPlayer > 21) {
+    document.querySelector('.player-wins').textContent = 'PLAYER BUST'
+  }
+  if (deckTotalDealer < 17) {
+    const dealerCard = document.createElement('li')
+    const dealCard = (deck.pop())
+    dealerCard.textContent =
+      dealCard.rank +
+      ' of ' +
+      dealCard.suit +
+      ' has a value of ' +
+      dealCard.value
+
+
+
+    dealerHand.push(dealCard)
+    console.log(dealCard)
+    document.querySelector('.dealers-cards').appendChild(dealerCard)
+  }
+
   document.querySelector('.draw-btn').disabled = true
 }
+
+
 const main = () => {
   createDeck()
   shuffle()
