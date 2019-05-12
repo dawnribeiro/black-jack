@@ -84,14 +84,9 @@ const dealCardToDealer = () => {
   const dealCard = (deck.pop())
 
   dealerHand.push(dealCard)
+  const dealerCard = document.createElement('img')
+  dealerCard.src = '/images/' + dealCard.rank + '_' + 'of' + '_' + dealCard.suit + '.svg'
 
-  const dealerCard = document.createElement('li')
-  dealerCard.textContent =
-    dealCard.rank +
-    ' of ' +
-    dealCard.suit +
-    ' has a value of ' +
-    dealCard.value
   document.querySelector('.dealers-cards').appendChild(dealerCard)
 }
 
@@ -119,14 +114,9 @@ const stand = () => {
     document.querySelector('.player-wins').textContent = 'PLAYER BUST'
   }
   if (deckTotalDealer < 17) {
-    const dealerCard = document.createElement('li')
+    const dealerCard = document.createElement('img')
     const dealCard = (deck.pop())
-    dealerCard.textContent =
-      dealCard.rank +
-      ' of ' +
-      dealCard.suit +
-      ' has a value of ' +
-      dealCard.value
+    dealerCard.src = '/images/' + dealCard.rank + '_' + 'of' + '_' + dealCard.suit + '.svg'
 
     dealerHand.push(dealCard)
     console.log(dealCard)
