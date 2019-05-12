@@ -91,7 +91,6 @@ const dealCardToDealer = () => {
 }
 
 const reset = () => {
-  document.querySelector('.players-cards').textContent = ' '
   document.querySelector('.draw-btn').disabled = false
   document.querySelector('.player-total').textContent = ' '
   document.querySelector('.dealer-total').textContent = ' '
