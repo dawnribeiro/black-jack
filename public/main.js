@@ -60,6 +60,7 @@ const createDeck = () => {
     }
   }
 }
+
 const shuffle = () => {
   for (let i = deck.length - 1; i > 0; i--) {
     let randomPosition = Math.floor(Math.random() * (i + 1))
@@ -68,21 +69,17 @@ const shuffle = () => {
     deck[randomPosition] = temp
   }
 }
+
 const dealCardToPlayer = () => {
   const dealCard = (deck.pop())
 
   playerHand.push(dealCard)
-
-  const playerCard = document.createElement('li')
-  playerCard.textContent =
-    dealCard.rank +
-    ' of ' +
-    dealCard.suit +
-    ' has a value of ' +
-    dealCard.value
+  const playerCard = document.createElement('img')
+  playerCard.src = '/images/' + dealCard.rank + '_' + 'of' + '_' + dealCard.suit + '.svg'
 
   document.querySelector('.players-cards').appendChild(playerCard)
 }
+
 const dealCardToDealer = () => {
   const dealCard = (deck.pop())
 
@@ -98,13 +95,13 @@ const dealCardToDealer = () => {
   document.querySelector('.dealers-cards').appendChild(dealerCard)
 }
 
-
 const reset = () => {
   document.querySelector('.players-cards').textContent = ' '
   document.querySelector('.draw-btn').disabled = false
   document.querySelector('.player-total').textContent = ' '
   document.querySelector('.dealer-total').textContent = ' '
 }
+
 const stand = () => {
   let deckTotalPlayer = 0
   playerHand.forEach(card => {
@@ -131,8 +128,6 @@ const stand = () => {
       ' has a value of ' +
       dealCard.value
 
-
-
     dealerHand.push(dealCard)
     console.log(dealCard)
     document.querySelector('.dealers-cards').appendChild(dealerCard)
@@ -140,7 +135,6 @@ const stand = () => {
 
   document.querySelector('.draw-btn').disabled = true
 }
-
 
 const main = () => {
   createDeck()
@@ -150,12 +144,8 @@ const main = () => {
   dealCardToDealer()
   dealCardToDealer()
 }
-//   console.log('resetting page')
-//   document.querySelector('.team-2-add-1-button').disabled = false
-//   document.querySelector('.team-2-subtract-1-button').disabled = false
-//   document.querySelector('.team-1-add-1-button').disabled = false
-document.querySelector('.stand-btn').addEventListener('click', stand)
 
+document.querySelector('.stand-btn').addEventListener('click', stand)
 document.querySelector('.reset-btn').addEventListener('click', reset)
 document.querySelector('.draw-btn').addEventListener('click', dealCardToPlayer)
 document.addEventListener('DOMContentLoaded', main)

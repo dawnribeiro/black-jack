@@ -24,23 +24,31 @@ main {
 }
 
 .players-cards {
-  background-color: purple;
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin: 3rem;
   padding: 1rem;
   list-style: none;
   text-align: center;
+  display: flex;
 }
 
 .dealers-cards {
-  background-color: purple;
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin: 3rem;
   padding: 1rem;
   list-style: none;
   text-align: center;
+  display: flex;
 }
 
 .game {
   width: 100%
+}
+
+li {
+  width: 120px;
+  height: 150px;
+  background-color: green;
+  margin: 5px;
+
 }
